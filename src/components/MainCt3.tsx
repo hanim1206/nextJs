@@ -4,67 +4,8 @@ import styled from 'styled-components';
 import styles from '../../styles/Header.module.css';
 import Image from 'next/image';
 import MainPortFolio1 from './MainPortFolio1';
+import {I_MainSlideItem} from '@/components/I_index';
 
-/**
- * 인터페이스
- */
-
-interface I_project{
-    img: string;
-    title: string;
-    desc: string;
-    delay: number;
-}
-const projectList: I_project[] = [
-    {
-        img: '/po1.png',
-        title: '음악플러스',
-        desc: 'PC WEB/MOBILE WEB/HYBRId APP',
-        delay:100,
-    },
-    {
-        img: '/po2.png',
-        title: 'GNM',
-        desc: 'PC WEB/MOBILE WEB/HYBRId APP',
-        delay:200,
-    },
-    {
-        img: '/po3.png',
-        title: '영창',
-        desc: 'PC WEB/MOBILE WEB/HYBRId APP',
-        delay:300,
-    },
-    {
-        img: '/po4.png',
-        title: '동아',
-        desc: 'PC WEB/MOBILE WEB/HYBRId APP',
-        delay:400,
-    },
-    {
-        img: '/po5.png',
-        title: '게임,,,',
-        desc: 'PC WEB/MOBILE WEB/HYBRId APP',
-        delay:100,
-    },
-    {
-        img: '/po6.png',
-        title: '맥스무비',
-        desc: 'PC WEB/MOBILE WEB/HYBRId APP',
-        delay:200,
-    },
-    {
-        img: '/po7.png',
-        title: '어떤 시계',
-        desc: 'PC WEB/MOBILE WEB/HYBRId APP',
-        delay:300,
-    },
-    {
-        img: '/po8.png',
-        title: '원주옥상영화제',
-        desc: 'PC WEB/MOBILE WEB/HYBRId APP',
-        delay:400,
-    },
-] 
 const Inner = styled.div`
     padding: 130px 0;
     .txtWrap{
@@ -85,7 +26,7 @@ const Inner = styled.div`
         button{color: #432178;font-size: 18px;line-height: 1.2;font-weight: 600;border: 1px solid #A8A8A8;padding: 15px 0;min-width: 256px;border-radius: 60px;background-color: #fff;display: flex;margin: 0 auto;justify-content: center;}
     }
     `;
-export default function MainCt3() { 
+export default function MainCt3(props:I_MainSlideItem) { 
     return (
         <Inner className='mainCt3'>
             <div  className='txtWrap'>
@@ -94,8 +35,8 @@ export default function MainCt3() {
             </div>
             <ul className='portFolioWrap setCenter'>
                 {
-                    projectList.map((i,idx)=>(
-                        <MainPortFolio1  content = {projectList[idx]}  key = {idx}></MainPortFolio1>
+                    props.data.map((i,idx)=>(
+                        <MainPortFolio1  content = {props.data[idx]}  key = {idx}></MainPortFolio1>
                     ))
                 }
             </ul>

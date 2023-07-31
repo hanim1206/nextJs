@@ -8,26 +8,18 @@ import MainCt4 from '@/components/MainCt4'
 import MainCt5 from '@/components/MainCt5'
 import { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react'
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import {I_myData,I_allData} from '@/components/I_index';
+import {I_allData,I_allDataProps,I_project,I_MainSlideItem,ImgInterface} from '@/components/I_index';
 
 
-export default function Home(props:I_myData) 
+export default function Home(props:I_allData) 
 {
-    const inputtext = useRef<HTMLInputElement>(null);
-
-    const dataChange = useCallback(() => {
-        if(inputtext.current)
-        {
-            console.log(inputtext.current.value);
-        }
-    },[])
-    console.log(props);
+    console.log(props.content1,"props.content1");
     return (
         <div className='text-8xl index'>
             <Header />
-            <MainCt1 />
+            <MainCt1 data={props.content1}/>
             <MainCt2 />
-            <MainCt3 />
+            <MainCt3 data={props.content3}/>
             <MainCt4 />
             <MainCt5 />
             <Footer />
@@ -41,8 +33,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const myData2 = await res2.json();
     const allData:I_allData = {
         props : { 
-            "data1": myData,
-            "data2": myData2
+            content1: myData,
+            content3: myData2
         }
     }
     return allData;

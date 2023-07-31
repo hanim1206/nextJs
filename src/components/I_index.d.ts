@@ -1,14 +1,37 @@
 /**
- * 인터페이스 모듈로 내보내기
+ * 메인페이지 이미지 인터페이스
 */
-export interface I_myData {
-    "data1" : Repo,
-    "data2" : Repo,
+export interface ImgInterface{
+    frontImg: string;
+    bgImg: string;
 }
-
+/**
+ * 메인페이지 슬라이드 인터페이스
+ */
+export interface I_MainSlideItem {
+topTxt: string;
+mainTxt: string;
+btmTxt: string;
+btn: string[];
+img: ImgInterface;
+color?:string,
+}
+/**
+ * 메인페이지 프로젝트 인터페이스
+ */
+ export interface I_project{
+    img: string;
+    title: string;
+    desc: string;
+    delay: number;
+}
+export interface I_allDataProps{
+    content1: I_MainSlideItem;
+    content3: I_project;
+}
+/**
+ * 서버사이드프롭스 인터페이스
+ */
 export interface I_allData {
-    props : { 
-        "data1": myData;
-        "data2": myData2;
-    }
+    props : I_allDataProps
 }

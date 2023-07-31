@@ -10,7 +10,7 @@ type Props = {};
 
 export default function Header({ }: Props) {
     const Header = styled.header`
-        position: fixed;width: 100%;z-index:1;
+        position: fixed;width: 100%;z-index:1;background-color:#fff;
         .inner{ 
             display:flex; justify-content:space-between; align-items: center; position: relative; height: 84px;
             .logoWrap{}
