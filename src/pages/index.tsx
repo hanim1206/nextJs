@@ -11,13 +11,14 @@ import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import {I_allData,I_allDataProps,I_project,I_MainSlideItem,ImgInterface} from '@/components/I_index';
 
 
-export default function Home(props:I_allData) 
+export default function Home(props:I_allDataProps) 
 {
-    console.log(props.content1,"props.content1");
+    console.log(props.content1, "props.content1");
+    const data1:I_MainSlideItem = props.content1
     return (
         <div className='text-8xl index'>
             <Header />
-            <MainCt1 data={props.content1}/>
+            <MainCt1 data={data1}/>
             <MainCt2 />
             <MainCt3 data={props.content3}/>
             <MainCt4 />
