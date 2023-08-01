@@ -8,17 +8,17 @@ import MainCt4 from '@/components/MainCt4'
 import MainCt5 from '@/components/MainCt5'
 import { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react'
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
-import {I_allData,I_allDataProps,I_project,I_MainSlideItem,ImgInterface} from '@/components/I_index';
+import {I_allData,I_allDataProps,I_project,I_MainSlideItem} from '@/components/I_index';
 
 
 export default function Home(props:I_allDataProps) 
 {
-    console.log(props.content1, "props.content1");
-    const data1:I_MainSlideItem = props.content1
+    const data1:I_MainSlideItem[] = props.content1;
+    const data2:I_project[] = props.content3;
     return (
         <div className='text-8xl index'>
             <Header />
-            <MainCt1 data={data1}/>
+            <MainCt1 data={props.content1}/>
             <MainCt2 />
             <MainCt3 data={props.content3}/>
             <MainCt4 />
@@ -28,7 +28,7 @@ export default function Home(props:I_allDataProps)
     )
 }
 export const getServerSideProps: GetServerSideProps = async () => {
-    const res = await fetch('http://localhost:3000/api/hello');
+    const res:Response = await fetch('http://localhost:3000/api/hello');
     const res2 = await fetch('http://localhost:3000/api/IndexApi');
     const myData = await res.json();
     const myData2 = await res2.json();

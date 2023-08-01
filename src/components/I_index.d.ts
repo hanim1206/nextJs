@@ -16,6 +16,7 @@ btn: string[];
 img: ImgInterface;
 color?:string,
 }
+////////////////////////////////////////////////////////////
 /**
  * 메인페이지 프로젝트 인터페이스
  */
@@ -25,13 +26,31 @@ color?:string,
     desc: string;
     delay: number;
 }
+////////////////////////////////////////////////////////////
+/**
+ * 인덱스로 전달되는 서버사이드 데이터들
+ */
 export interface I_allDataProps{
-    content1: I_MainSlideItem;
-    content3: I_project;
+    content1: I_MainSlideItem[];
+    content3: I_project[];
 }
 /**
- * 서버사이드프롭스 인터페이스
+ * 서버사이드 데이터를 프롭스 객체로 묶었다
  */
 export interface I_allData {
     props : I_allDataProps
 }
+////////////////////////////////////////////////////////////
+/**
+ * I_MainSlideItem 프롭으로 받는 애들의 인터페이스
+ */
+export interface I_propsForMainSlideItem{
+    data : I_MainSlideItem[]
+}
+/**
+ * I_project 프롭으로 받는 애들의 인터페이스
+ */
+ export interface I_propsForI_project{
+    data : I_project[]
+}
+////////////////////////////////////////////////////////////

@@ -5,7 +5,7 @@ import styles from '../../styles/Header.module.css';
 import Image from 'next/image';
 import Slide from './Slide';
 import Slider from "react-slick";
-import {I_MainSlideItem} from '@/components/I_index';
+import {ImgInterface,I_MainSlideItem,I_propsForMainSlideItem} from '@/components/I_index';
 
 /**
  * 스타일드 컴포넌트
@@ -25,7 +25,12 @@ const SliderInner = styled.div`
 /**
  * 추출 컴포넌트
 */
-const SliderWrapMainCt1=(props:I_MainSlideItem)=> {
+const SliderWrapMainCt1=(props:I_propsForMainSlideItem)=> {
+  const finalData:I_MainSlideItem[] = props.data;
+  console.log(typeof finalData,'finalData');
+  // console.log(finalData,'finalData');
+  
+
   const settings = {
     dots: true,
     infinite: true,
@@ -36,7 +41,6 @@ const SliderWrapMainCt1=(props:I_MainSlideItem)=> {
     arrows:false,
   };
 
-  console.log(props.data,'sliderWrapMainProps')
   return (
     <SliderInner className="sliderInner">
       <Slider {...settings}>
