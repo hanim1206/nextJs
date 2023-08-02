@@ -50,7 +50,7 @@ export interface I_propsForMainSlideItem{
 /**
  * I_project 프롭으로 받는 애들의 인터페이스
  */
- export interface I_propsForI_project{
+export interface I_propsForI_project{
     data : I_project[]
 }
 ////////////////////////////////////////////////////////////
