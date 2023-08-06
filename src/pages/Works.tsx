@@ -3,18 +3,38 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import Image from 'next/image'
 import Header from '../components/common/Header'
-type Props = {}
+import {useSelector , useDispatch} from 'react-redux';
+interface I_stateProps{
+    counter:number,
+}
+const Counter = styled.div`
+    padding:500px;
+    button{
+        padding:1rem;
+        margin:1rem;
+        background-color:orange;
+    }
+`;
+export default function Works() { 
 
-export default function Works({ }: Props) { 
-    const age: number = 12;
-    console.log(age,'age')
+    const dispatch = useDispatch();
+    const counter = useSelector((state:I_stateProps) => state.counter);
+    const toggleCounterHandler = () => {};
+    const incrementHandler = () => {
+    dispatch({ type : 'increment'})  
+    }
+    const decrementHandler = () => {
+    dispatch({ type : 'decrement'})  
+    }
     return (
         <>
             <Header/>
-            <div>
-                works 페이지입니다
-                <br />타입스크립트 테스트
-            </div>
+            <Counter>
+                <div>{counter}</div>
+                <button onClick={incrementHandler}>increment</button>
+                <button onClick={decrementHandler}>decrement</button>
+            </Counter>
+            
         </>
     )
 }

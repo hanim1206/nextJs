@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import AOS from 'aos';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
+import {Provider, useDispatch, useSelector, connect} from 'react-redux';
+import store from '../components/store/index'
 
 export default function App({ Component, pageProps }: AppProps) {
     useEffect(() => {
@@ -15,7 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
       }, [])
     return (
         <div>
+          <Provider store={store}>
             <Component {...pageProps} />
+          </Provider>
         </div>
     )
 }
