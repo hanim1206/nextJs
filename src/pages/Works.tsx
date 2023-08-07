@@ -19,7 +19,6 @@ export default function Works() {
 
     const dispatch = useDispatch();
     const counter = useSelector((state:I_stateProps) => state.counter);
-    const toggleCounterHandler = () => {};
     const incrementHandler = () => {
     dispatch({ type : 'increment'})  
     }

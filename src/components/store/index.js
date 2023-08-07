@@ -1,7 +1,7 @@
 //여기다 모든 리덕스 로직을 저장할 것임. 
 import {createStore} from "redux";
 
-const counterReducer = (state = {counter : 0 },action)=>{
+const counterReducer = (state = {counter : 0 } , action)=>{
     if(action.type === 'increment')
     {
         return {
@@ -16,6 +16,7 @@ const counterReducer = (state = {counter : 0 },action)=>{
     }
     return state;
 }
+
 const store = createStore(counterReducer);
 
 export default store; 
