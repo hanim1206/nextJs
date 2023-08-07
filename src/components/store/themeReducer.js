@@ -16,6 +16,4 @@ const themeReducer = (state = {theme:'lightMode'} , action)=>{
     return state;
 }
 
-const theme = createStore(themeReducer);
-
-export default theme; 
+export default themeReducer; 

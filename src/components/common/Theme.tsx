@@ -8,10 +8,9 @@ interface I_statePropsTheme {
     theme:string
 }
 const Theme = (props) => {
-    const theme = useSelector((state: I_statePropsTheme) => state.theme);
-    console.log(theme);
+
     const ThemeBox = styled.div``;
-    return <ThemeBox className={`themeBox ${theme}`}>
+    return <ThemeBox>
         {props.children}
     </ThemeBox>
 }

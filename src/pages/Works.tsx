@@ -17,25 +17,25 @@ const Counter = styled.div`
 `;
 export default function Works() { 
 
-    const dispatch = useDispatch();
-    const theme = useSelector((state: I_statePropsTheme) => state.theme);
-    const themeHandler = () => {
-        if (theme === 'lightMode')
-        {
-            dispatch({ type: 'dark' });
-        }
-        else if(theme === 'darkMode')
-        {
-            dispatch({ type: 'light' });
-        }
-    }
+    // const dispatch = useDispatch();
+    // const theme = useSelector((state: I_statePropsTheme) => state.theme);
+    // const themeHandler = () => {
+    //     if (theme === 'lightMode')
+    //     {
+    //         dispatch({ type: 'dark' });
+    //     }
+    //     else if(theme === 'darkMode')
+    //     {
+    //         dispatch({ type: 'light' });
+    //     }
+    // }
     // console.log('hahahaha')
     return (
         <>
             <Header/>
             <Counter>
-                <div>theme : {theme}</div>
-                <button onClick={themeHandler}>change mode</button>
+                <div>theme : </div>
+                <button>change mode</button>
             </Counter>
             
         </>
