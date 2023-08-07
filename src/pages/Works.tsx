@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import Header from '../components/common/Header'
 import {useSelector , useDispatch} from 'react-redux';
-interface I_stateProps{
-    counter:number,
+interface I_statePropsTheme {
+    theme:string
 }
 const Counter = styled.div`
     padding:500px;
@@ -18,20 +18,24 @@ const Counter = styled.div`
 export default function Works() { 
 
     const dispatch = useDispatch();
-    const counter = useSelector((state:I_stateProps) => state.counter);
-    const incrementHandler = () => {
-    dispatch({ type : 'increment'})  
+    const theme = useSelector((state: I_statePropsTheme) => state.theme);
+    const themeHandler = () => {
+        if (theme === 'lightMode')
+        {
+            dispatch({ type: 'dark' });
+        }
+        else if(theme === 'darkMode')
+        {
+            dispatch({ type: 'light' });
+        }
     }
-    const decrementHandler = () => {
-    dispatch({ type : 'decrement'})  
-    }
+    // console.log('hahahaha')
     return (
         <>
             <Header/>
             <Counter>
-                <div>{counter}</div>
-                <button onClick={incrementHandler}>increment</button>
-                <button onClick={decrementHandler}>decrement</button>
+                <div>theme : {theme}</div>
+                <button onClick={themeHandler}>change mode</button>
             </Counter>
             
         </>

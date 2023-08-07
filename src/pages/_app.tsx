@@ -5,9 +5,15 @@ import AOS from 'aos';
 import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import {Provider, useDispatch, useSelector, connect} from 'react-redux';
-import store from '../components/store/index'
-
+import counter from '../components/store/counter'
+import theme from '../components/store/themeReducer'
+import Theme from '../components/common/Theme'
+// 인터페이스
+interface I_stateProps{
+  theme:string,
+}
 export default function App({ Component, pageProps }: AppProps) {
+  
     useEffect(() => {
         AOS.init({
           startEvent: 'DOMContentLoaded', 
@@ -16,10 +22,10 @@ export default function App({ Component, pageProps }: AppProps) {
         });
       }, [])
     return (
-        <div>
-          <Provider store={store}>
-            <Component {...pageProps} />
-          </Provider>
-        </div>
+      <Provider store={theme}>
+        <Theme>
+          <Component {...pageProps} />
+        </Theme>
+    </Provider>
     )
 }

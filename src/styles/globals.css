@@ -78,4 +78,8 @@ header .subMenuWrap ul{margin-right: 17px;display: flex;flex-direction: column;}
 header .subMenuWrap ul li{height: 18px;}
 header .subMenuWrap ul li:not(:first-child){margin-top: 27px;}
 header .subMenuWrap ul li a{font-size: 13px;display: block;}
+/* theme */
+div.themeBox.darkMode body{background-color: #000;}
+div.themeBox.darkMode header{background-color: #000;}
+div.themeBox.darkMode header .inner a{color: #fff!important;}
 
