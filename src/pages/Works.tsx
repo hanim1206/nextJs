@@ -16,9 +16,9 @@ const Counter = styled.div`
     }
 `;
 export default function Works() { 
-
     // const dispatch = useDispatch();
-    // const theme = useSelector((state: I_statePropsTheme) => state.theme);
+    const theme = useSelector((state: I_statePropsTheme) => state.theme);
+    console.log(theme)
     // const themeHandler = () => {
     //     if (theme === 'lightMode')
     //     {
