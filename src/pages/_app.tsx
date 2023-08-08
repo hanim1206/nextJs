@@ -12,20 +12,20 @@ import { composeWithDevTools } from 'redux-devtools-extension'; // 리덕스 개
 
 //리덕스 개발자모드 적용
 const store = createStore(rootReducer, composeWithDevTools());
-// console.log(store.getState().counterReducer)
+console.log(store.getState(),"store")
 export default function App({ Component, pageProps }: AppProps) {
   
-    useEffect(() => {
-        AOS.init({
-          startEvent: 'DOMContentLoaded', 
-          initClassName: 'aos-init',
-          animatedClassName: 'aos-animate'
-        });
-      }, [])
+  useEffect(() => {
+    AOS.init({
+      startEvent: 'DOMContentLoaded',
+      initClassName: 'aos-init',
+      animatedClassName: 'aos-animate'
+    });
+  }, []);
   return (
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
 
-    )
+  );
 }

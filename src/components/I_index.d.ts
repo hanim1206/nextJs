@@ -54,3 +54,16 @@ export interface I_propsForI_project{
     data : I_project[]
 }
 ////////////////////////////////////////////////////////////
+/**
+ * 리듀서 인터페이스
+*/
+export interface I_counterReducer{
+    counter : number,
+}
+export interface I_themeReducer{
+    theme : string,
+}
+export interface I_stateProps {
+    counterReducer: I_counterReducer,
+    themeReducer :I_themeReducer,
+}

@@ -1,16 +1,16 @@
 import {createStore} from "redux";
-
-const themeReducer = (state = {theme:'lightMode'} , action)=>{
-    if(action.type === 'light')
-    {
-        return {
-            theme : 'lightMode'
-        }
-    }
-    else if(action.type === 'dark')
+const initialState = {theme:'lightMode'}
+const themeReducer = (state = initialState , action)=>{
+    if(action.type === 'dark')
     {
         return {
             theme : 'darkMode'
+        }
+    }
+    else if(action.type === 'light')
+    {
+        return {
+            theme : 'lightMode'
         }
     }
     return state;
