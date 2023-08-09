@@ -12,6 +12,7 @@ const Content = (props:I_children) => {
         margin: 0 auto;
         max-width: 1280px;
         width: 90%;
+        padding-bottom:5rem;
     `; 
     console.log(props.children,"children")
     return (<Container>

@@ -6,6 +6,7 @@ import Header from '../components/common/Header';
 import { useSelector, useDispatch } from 'react-redux';
 import { I_stateProps } from '@/components/I_index';
 import Content from '../components/UI/Content'
+import Basket from '@/components/common/Basket';
 const ThemeBox = styled.div`
         padding: 1rem;
         box-sizing: border-box;
@@ -55,6 +56,7 @@ export default function Works() {
         <>
             <Header />
             <Content>
+                <Basket></Basket>
                 <ThemeBox className={`themeBox ${theme}`}>
                     <p>Theme : {theme}</p>
                     <button onClick={themeHandler}>change mode</button>

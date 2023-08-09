@@ -12,10 +12,16 @@ const basketReducer = (state = initialState , action)=>{
             itemInfo: action.item,
             number: 1,
         }
-        return {
+        return { 
             prdList: [...state.prdList, {
                 [newItem.name] : newItem
             }]
+        }
+    }
+    else if(action.type === 'removeAll')
+    {
+        return {
+            prdList : []
         }
     }
     return state;

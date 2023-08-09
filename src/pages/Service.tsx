@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Image from 'next/image'
@@ -8,6 +8,9 @@ import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { I_productList } from '@/components/I_index';
 import Product from '../components/Product'
 import Basket from '@/components/common/Basket'
+import Popup from '@/components/Popup';
+
+
 interface I_propsVal{
     productList: I_productList[],
 }
@@ -29,6 +32,8 @@ export default function Service(props: I_propsVal) {
             align-items: center;
             padding: 4vw 0;
             gap: 20px;
+            line-height: 1.5;
+            text-align: center;
             h3{
                 font-size: 30px;
                 font-weight: bold;
@@ -65,12 +70,13 @@ export default function Service(props: I_propsVal) {
                     object-position: center;
                 }
             }
-            .txrWrap{
+            .txtWrap{
                 h3{
                     font-weight:bold;
                 }
                 span{
                     font-size: 12px;
+                    line-height: 1.5;
                 }
                 text-align: center;
             }
@@ -85,15 +91,28 @@ export default function Service(props: I_propsVal) {
             }
         }
     `;
+    const [isPopupOpen,setIsPopupOpen] = useState(false);
+    const handlePopup = () => {
+        console.log('팝업')
+        isPopupOpen ? setIsPopupOpen(false) : setIsPopupOpen(true);
+    }
     return (
         <>
+            {
+                isPopupOpen ? (<Popup handlePopup = {handlePopup}>
+                    <div className='txtWrap'>
+                        상품이 잘 담겼습니다.
+                    </div>
+                </Popup>) : ''
+            }
             <Header></Header>
             <Content>
+            
                 <Basket></Basket>
                 <ServicePage>
                     <div className="titleWrap">
-                        <h3>샤핑하기</h3>
-                        <span>물건을 골라보세요~</span>
+                        <h3>New Arrival</h3>
+                        <span>이번달에 들어온 신상 아이템들입니다. <br/> 오직 하나뿐인 당신만의 비버를 골라보세요~</span>
                     </div>
                     <PrdList className="shopList">
                         {
@@ -104,6 +123,7 @@ export default function Service(props: I_propsVal) {
                                     name = {productList[idx].name}
                                     desc = {productList[idx].desc}
                                     src = {productList[idx].src}
+                                    handlePopup = {handlePopup}
                                 ></Product>
                         ))  
                         }

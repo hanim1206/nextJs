@@ -6,16 +6,16 @@ import { useState, useEffect, useCallback, useRef, useLayoutEffect } from 'react
 import { I_productList,I_stateProps} from '@/components/I_index';
 import { useSelector, useDispatch } from 'react-redux';
 
-
-const Product = (props:I_productList) => {
+interface addFunc extends I_productList{
+    handlePopup : Function
+}
+const Product = (props:addFunc) => {
     const PrdItem = styled.li``;
     // 
     const [addBasket, setAddBasket] = useState([]);
-    // console.log(addBasket)
     // 
     const dispatch = useDispatch();
     const prdList = useSelector((state: I_stateProps) => state);
-    // console.log(prdList, "prdList");
     const basketHandler = () => {
         dispatch(
             {
@@ -40,7 +40,10 @@ const Product = (props:I_productList) => {
                 <span>{props.desc}</span>
             </div>
             <div className="btnWrap">
-                <button onClick={basketHandler}>장바구니에 넣기</button>
+                <button onClick={()=>{
+                    basketHandler();
+                    props.handlePopup();
+                }}>장바구니에 넣기</button>
             </div>
         </PrdItem>
     )
