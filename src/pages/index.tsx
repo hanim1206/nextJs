@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google'
 import Header from '@/components/common/Header'
 import Footer from '@/components/common/Footer'
 import MainCt1 from '@/components/MainCt1'
@@ -32,11 +31,14 @@ export const getServerSideProps: GetServerSideProps = async () => {
     const res2 = await fetch('http://localhost:3000/api/IndexApi');
     const myData = await res.json();
     const myData2 = await res2.json();
+    
     const allData:I_allData = {
         props : { 
             content1: myData,
-            content3: myData2
+            content3: myData2,
         }
     }
     return allData;
 }
+
+

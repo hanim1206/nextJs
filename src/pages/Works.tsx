@@ -1,13 +1,12 @@
-import React from 'react'
-import Link from 'next/link'
-import styled from 'styled-components'
-import Image from 'next/image'
-import Header from '../components/common/Header'
+import React from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
+import Image from 'next/image';
+import Header from '../components/common/Header';
 import { useSelector, useDispatch } from 'react-redux';
-import { I_stateProps } from '@/components/I_index'
-const Content = styled.div`
-    padding:100px;
-    div.themeBox{
+import { I_stateProps } from '@/components/I_index';
+import Content from '../components/UI/Content'
+const ThemeBox = styled.div`
         padding: 1rem;
         box-sizing: border-box;
         border-radius: 1rem;
@@ -36,7 +35,6 @@ const Content = styled.div`
             p{color:#fff}
             button{color:#fff;border-color:#fff;}
         }
-    }
 `;
 export default function Works() {
     const dispatch = useDispatch();
@@ -57,10 +55,10 @@ export default function Works() {
         <>
             <Header />
             <Content>
-                <div className={`themeBox ${theme}`}>
+                <ThemeBox className={`themeBox ${theme}`}>
                     <p>Theme : {theme}</p>
                     <button onClick={themeHandler}>change mode</button>
-                </div>
+                </ThemeBox>
             </Content>
 
             

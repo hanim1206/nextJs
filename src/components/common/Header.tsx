@@ -52,8 +52,8 @@ export default function Header({ }: Props) {
                     </Link>
                 </div>
                 <div className='mainMenu'>
-                    <li><Link href="/Works">리덕스</Link></li>
-                    <li><Link href="/Service">제작서비스</Link></li>
+                    <li><Link href="/Works">Mode Change</Link></li>
+                    <li><Link href="/Service">샤핑하기</Link></li>
                     <li><Link href="/Consult">견적/상담</Link></li>
                     <li><Link href="/About">About 위즈피아</Link></li>
                 </div>

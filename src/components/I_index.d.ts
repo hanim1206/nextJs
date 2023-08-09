@@ -28,6 +28,27 @@ color?:string,
 }
 ////////////////////////////////////////////////////////////
 /**
+ * 상품 리스트
+ */
+export interface I_productList{
+    id: number;
+    name: string;
+    desc:string;
+    src: string; 
+}
+/**
+ * 기존 I_productList에 id값 추가하여 확장
+ */
+// export interface I_productListWithId extends I_productList{
+//     id: number;
+// }
+export interface I_basketItem{
+    name: string;
+    itemInfo: I_productList;
+    number: number;
+}
+////////////////////////////////////////////////////////////
+/**
  * 인덱스로 전달되는 서버사이드 데이터들
  */
 export interface I_allDataProps{
@@ -63,7 +84,12 @@ export interface I_counterReducer{
 export interface I_themeReducer{
     theme : string,
 }
+export interface I_prdReducer{
+    prdList : I_productListWithId[],
+}
 export interface I_stateProps {
     counterReducer: I_counterReducer,
-    themeReducer :I_themeReducer,
+    themeReducer: I_themeReducer,
+    basketReducer:I_prdReducer
 }
+////////////////////////////////////////////////////////////

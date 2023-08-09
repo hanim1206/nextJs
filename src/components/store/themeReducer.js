@@ -4,13 +4,13 @@ const themeReducer = (state = initialState , action)=>{
     if(action.type === 'dark')
     {
         return {
-            theme : 'darkMode'
+            theme : 'darkMode',
         }
     }
     else if(action.type === 'light')
     {
         return {
-            theme : 'lightMode'
+            theme : 'lightMode',
         }
     }
     return state;
