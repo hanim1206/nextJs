@@ -37,7 +37,7 @@ const ThemeBox = styled.div`
             button{color:#fff;border-color:#fff;}
         }
 `;
-export default function Works() {
+export default function Theme() {
     const dispatch = useDispatch();
     const theme = useSelector((state: I_stateProps) => state['themeReducer'].theme);
     const themeHandler = () => {

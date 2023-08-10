@@ -17,10 +17,8 @@ interface I_propsVal{
 interface I_props{
     props:I_propsVal
 }
-export default function Service(props: I_propsVal) { 
-    console.log(props, "aaaa")
+export default function Cart(props: I_propsVal) { 
     const { productList } = props;
-    // console.log(productList, "productList")
     /**
      * 서타일드 컴포넌트
      */
@@ -108,18 +106,18 @@ export default function Service(props: I_propsVal) {
             <Header></Header>
             <Content>
             
-                <Basket></Basket>
+                <Basket ></Basket>
                 <ServicePage>
                     <div className="titleWrap">
                         <h3>New Arrival</h3>
-                        <span>이번달에 들어온 신상 아이템들입니다. <br/> 오직 하나뿐인 당신만의 비버를 골라보세요~</span>
+                        <span>이번달에 들어온 신상 아이템들입니다. <br/> 가장 소중한 사람에게 선물하세요~</span>
                     </div>
                     <PrdList className="shopList">
                         {
                             productList.map((p,idx) => (
                                 <Product
                                     key = {productList[idx].key}
-                                    id = {productList[idx].key}
+                                    id = {productList[idx].id}
                                     name = {productList[idx].name}
                                     desc = {productList[idx].desc}
                                     src = {productList[idx].src}
@@ -142,7 +140,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
             productList:myData3,
         }
     }
-    // console.log(allData,"dididi")
     return allData;
     
 }

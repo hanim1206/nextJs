@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import BasketProduct from '../BasketProduct'
 import { spawn } from 'child_process';
 
-const Basket = (props:I_productList) => {
+const Basket = () => {
     const BasketWrap = styled.div`
 
         .btnWrap{
@@ -91,12 +91,11 @@ const Basket = (props:I_productList) => {
             }
         }
     `;
-    // const dispatch = useDispatch();
     const addedPrdList: {
         [key: string] : I_basketItem
     }[] = useSelector((state: I_stateProps) => state.basketReducer.prdList);
     console.log(addedPrdList, "addedPrdList!!!!!!!!!!!!");
-    //저장된 상품 이름 뽑기
+    //저장된 상품 이름 추출
     const addedPrdTitle:string[] = [];
     addedPrdList.forEach(i => {
         addedPrdTitle.push(...Object.keys(i));
@@ -139,7 +138,7 @@ const Basket = (props:I_productList) => {
             setIsBasketOpen(true);
         }
     }
-    //
+    //액션 함수
     const dispatch = useDispatch();
     const basketHandler = () => {
         dispatch(

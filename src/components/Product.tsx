@@ -23,7 +23,6 @@ const Product = (props:addFunc) => {
                 item : props
             }
         );
-        // console.log(prdList,'prdList')
     }
     return (
         <PrdItem className='product'>

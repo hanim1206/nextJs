@@ -31,6 +31,7 @@ color?:string,
  * 상품 리스트
  */
 export interface I_productList{
+    key: number;
     id: number;
     name: string;
     desc:string;
@@ -90,6 +91,6 @@ export interface I_prdReducer{
 export interface I_stateProps {
     counterReducer: I_counterReducer,
     themeReducer: I_themeReducer,
-    basketReducer:I_prdReducer
+    basketReducer: I_prdReducer,
 }
 ////////////////////////////////////////////////////////////

@@ -14,7 +14,7 @@ const Content = (props:I_children) => {
         width: 90%;
         padding-bottom:5rem;
     `; 
-    console.log(props.children,"children")
+    // console.log(props.children,"children")
     return (<Container>
         {props.children}
     </Container>)
