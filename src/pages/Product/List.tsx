@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Image from 'next/image'
-import Header from '../components/common/Header'
-import Content from '../components/UI/Content'
+import Header from '@/components/common/Header'
+import Content from '@/components/UI/Content'
 import type { InferGetServerSidePropsType, GetServerSideProps } from 'next'
 import { I_productList } from '@/components/I_index';
-import Product from '../components/Product'
+import Product from '@/components/Product'
 import Basket from '@/components/common/Basket'
 import Popup from '@/components/Popup';
 
@@ -28,7 +28,7 @@ export default function Cart(props: I_propsVal) {
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 4vw 0;
+            padding: 6vw 0;
             gap: 20px;
             line-height: 1.5;
             text-align: center;
@@ -46,47 +46,60 @@ export default function Cart(props: I_propsVal) {
         flex-wrap:wrap;
         width: 100%;
         gap: 2vw;
+        
         li{
-            border:solid 1px #2b2b2b;
             width: calc(25% - 1.5vw);
+            border-radius: 20px;
+            background: radial-gradient(black, transparent);
+            padding: 2vw;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            padding: 2vw;
-            gap: 20px;
-            .imgWrap{
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                overflow: hidden;
-                img{
-                    width: 100%;
-                    height:100%;
-                    object-fit: cover;
-                    object-position: center;
+            gap: 10px;
+            a{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border-radius: 10px;
+                gap: 2rem;
+                height:calc(100% - 46px);
+                .imgWrap{
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    img{
+                        width: 100%;
+                        height:100%;
+                        object-fit: cover;
+                        object-position: center;
+                    }
+                }
+                .txtWrap{
+                    color:#fff;
+                    h3{
+                        font-weight:bold;
+                        margin-bottom: 10px
+                    }
+                    span{
+                        font-size: 12px;
+                        line-height: 1.5;
+                    }
+                    text-align: center;
                 }
             }
-            .txtWrap{
-                h3{
-                    font-weight:bold;
+                .btnWrap{
+                    display: flex;
+                    justify-content: center;
+
+                    button{
+                        padding: 10px;
+                        background-color: #fff;
+                        color: #000;
+                        border-radius: 10px;
+                        font-size: 14px;
+                    }
                 }
-                span{
-                    font-size: 12px;
-                    line-height: 1.5;
-                }
-                text-align: center;
-            }
-            .btnWrap{
-                button{
-                    padding: 1rem;
-                    background-color: #2b2b2b;
-                    color: #fff;
-                    border-radius: 10px;
-                    font-size: 14px;
-                }
-            }
         }
     `;
     const [isPopupOpen,setIsPopupOpen] = useState(false);

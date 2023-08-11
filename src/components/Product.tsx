@@ -26,18 +26,20 @@ const Product = (props:addFunc) => {
     }
     return (
         <PrdItem className='product'>
-            <div className="imgWrap">
-                <Image
-                    width='100'
-                    height='100'
-                    src={props.src}
-                    alt='비버1'
-                ></Image>
-            </div>
-            <div className="txtWrap">
-                <h3>{props.name}</h3>
-                <span>{props.desc}</span>
-            </div>
+            <Link href={`/Product/Detail/${props.id}`}>
+                <div className="imgWrap">
+                    <Image
+                        width='100'
+                        height='100'
+                        src={props.src}
+                        alt='비버1'
+                    ></Image>
+                </div>
+                <div className="txtWrap">
+                    <h3>{props.name}</h3>
+                    <span>{props.desc}</span>
+                </div>
+            </Link>
             <div className="btnWrap">
                 <button onClick={()=>{
                     basketHandler();

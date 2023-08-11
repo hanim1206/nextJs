@@ -56,7 +56,6 @@ export default function Theme() {
         <>
             <Header />
             <Content>
-                <Basket></Basket>
                 <ThemeBox className={`themeBox ${theme}`}>
                     <p>Theme : {theme}</p>
                     <button onClick={themeHandler}>change mode</button>

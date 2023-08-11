@@ -39,8 +39,8 @@ export default function handler(
         {
             key:5,
             id:5,
-            name: '비버지',
-            desc:'보노보노의 친구 비버의 아버지입니다.',
+            name: '비버엄마',
+            desc:'보노보노의 친구 비버의 어머니입니다.',
             src: '/비버5.jpg',
         },
         {
