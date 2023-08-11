@@ -75,6 +75,13 @@ export interface I_propsForMainSlideItem{
 export interface I_propsForI_project{
     data : I_project[]
 }
+/**
+ * 리뷰 형태
+*/
+export interface I_singleReview {
+    title: string;
+    content: string;
+};
 ////////////////////////////////////////////////////////////
 /**
  * 리듀서 인터페이스
@@ -88,9 +95,17 @@ export interface I_themeReducer{
 export interface I_prdReducer{
     prdList : I_productListWithId[],
 }
+export interface I_reviewReducer{
+    reviewList: {
+        title: string;
+        content: string;
+        id: number;
+    }[]
+}
 export interface I_stateProps {
     counterReducer: I_counterReducer,
     themeReducer: I_themeReducer,
     basketReducer: I_prdReducer,
+    reviewReducer: I_reviewReducer,
 }
 ////////////////////////////////////////////////////////////

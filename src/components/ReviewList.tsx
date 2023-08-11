@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import Image from 'next/image'
-import Header from '@/components/common/Header'
-import Content from '@/components/UI/Content'
+import SingleReview from './SingleReview'
+import { useSelector, useDispatch } from 'react-redux';
+import { I_productList,I_stateProps,I_singleReview} from '@/components/I_index';
 
 const ReviewList = () => {
     const ReviewBox = styled.div`
@@ -11,7 +12,7 @@ const ReviewList = () => {
         ul{
             position: relative;height: 100%;
             li{
-
+                transition:all 0.3s;
                 .title{
                     height: 20px;border-bottom: solid 1px #000;display: flex;flex-direction: column;justify-content: center;background-color: #85e437;
                 }
@@ -27,57 +28,23 @@ const ReviewList = () => {
             }
         }
     `;
+    /**
+     * state 가져오기
+     */
+    const reviewList:I_singleReview[] = useSelector((state: I_stateProps) => state.reviewReducer.reviewList);
+    console.log(reviewList, 'reviewList');
     return (
         <ReviewBox>
             <ul>
-                <li className=''>
-                    <div className="title">
-                        titletitletitletitle
-                    </div>
-                    <div className="content">
-                        wawawawna,snfdsl,jndflkajnsd;kjland;lkhjS;ADLKJlsdkfj;LKSDJF;lsdhfL;SDHF;lnsdf;LKNSDL;sndLSDHJKF;Lsdhf;ljk
-                    </div>
-                </li>
-                <li>
-                    <div className="title">
-                        titletitletitletitletitletitletitletitle
-                    </div>
-                    <div className="content">
-                        wawawawna,snfdsl,jndflkajnsd;kjland;lkhjS;ADLKJlsdkfj;LKSDJF;lsdhfL;SDHF;lnsdf;LKNSDL;sndLSDHJKF;Lsdhf;ljk
-                    </div>
-                </li>
-                <li>
-                    <div className="title">
-                        titletitletitletitle
-                    </div>
-                    <div className="content">
-                        wawawawna,snfdsl,jndflkajnsd;kjland;lkhjS;ADLKJlsdkfj;LKSDJF;lsdhfL;SDHF;lnsdf;LKNSDL;sndLSDHJKF;Lsdhf;ljk
-                    </div>
-                </li>
-                <li>
-                    <div className="title">
-                        titletitletitletitle
-                    </div>
-                    <div className="content">
-                        wawawawna,snfdsl,jndflkajnsd;kjland;lkhjS;ADLKJlsdkfj;LKSDJF;lsdhfL;SDHF;lnsdf;LKNSDL;sndLSDHJKF;Lsdhf;ljk
-                    </div>
-                </li>
-                <li>
-                    <div className="title">
-                        titletitletitletitle
-                    </div>
-                    <div className="content">
-                        wawawawna,snfdsl,jndflkajnsd;kjland;lkhjS;ADLKJlsdkfj;LKSDJF;lsdhfL;SDHF;lnsdf;LKNSDL;sndLSDHJKF;Lsdhf;ljk
-                    </div>
-                </li>
-                <li>
-                    <div className="title">
-                        titletitletitletitle
-                    </div>
-                    <div className="content">
-                        wawawawna,snfdsl,jndflkajnsd;kjland;lkhjS;ADLKJlsdkfj;LKSDJF;lsdhfL;SDHF;lnsdf;LKNSDL;sndLSDHJKF;Lsdhf;ljk
-                    </div>
-                </li>
+                {
+                    reviewList.map((i,idx) => (
+                        
+                        <SingleReview
+                            title = {reviewList[idx].title}
+                            content = {reviewList[idx].content}
+                        ></SingleReview>
+                    ))
+                }
             </ul>
         </ReviewBox>      
     )
