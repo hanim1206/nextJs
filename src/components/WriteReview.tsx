@@ -9,9 +9,9 @@ import { useSelector, useDispatch } from 'react-redux';
 
 const WriteReview = () => {
     const WriteReviewBox = styled.div`
-            width: 50%;min-height:30vw;background-color: #223055;padding:2vw;display: flex;flex-direction: column;justify-content: space-between;border-radius: 0 50%;
+            width: 80%;min-height:30vw;background-color: #71747a;padding:2vw;display: flex;flex-direction: column;justify-content: space-between;border-radius: 0 50%;
             h4{
-                font-size: 21px;color: #fff;margin-top: 50px;text-align:end;
+                font-size: 21px;color: #fff;margin-top: 50px;text-align:center;
             }
             form{
                 background-color: #2d3bbd;border-top: solid 5px #000;
